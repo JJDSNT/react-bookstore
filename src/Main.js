@@ -25,13 +25,19 @@ class Main extends Component {
       noResults: false
     });
 
+    
+
     let options = {
-      mirror: "https://cors-anywhere.herokuapp.com/http://libgen.io",
+      mirror: "https://cors-anywhere.herokuapp.com/http://libgen.is",
+      //mirror: "http://gen.lib.rus.ec",
       query: userInput,
       count: 10
     };
+
     libgen.search(options, (err, data) => {
+      console.log(options);
       if (err) {
+        console.log(err);
         if (err.message.includes("No results for")) {
           this.setState({
             books: [],
